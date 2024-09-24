@@ -12,6 +12,7 @@ export default function Home() {
   const [list, setList] = useState({ x: [], r: [] });
   const [tendencia, setTendencia] = useState({
     n: "",
+    maximo: "",
   });
   const resolver = () => {
     const { x, a, b, c, m } = variables;
@@ -40,9 +41,22 @@ export default function Home() {
         i++;
       }
       const n = rValues.length - 1;
-      setTendencia((prev) => ({
-        n: n,
-      }));
+      if (
+        (Number(a) % 2 == 0) &
+        (Number(c) % 2 != 0) &
+        ((Number(b) - 1) % 4 == 1) &
+        (Number(m) > 0 && (Number(m) & (Number(m) - 1)) == 0)
+      ) {
+        setTendencia({
+          n: n,
+          maximo: "Alcanzo su Maximo Periodo",
+        });
+      } else {
+        setTendencia({
+          n: n,
+          maximo: "No Alcanzo su Maximo Periodo",
+        });
+      }
       setList({ x: xValues.slice(1), r: rValues.slice(1) });
     }
   };
@@ -244,6 +258,7 @@ export default function Home() {
                 <h2 className="text-3xl font-light my-2">
                   n: {tendencia.n - 1}
                 </h2>
+                <h2 className="text-3xl font-light my-2">{tendencia.maximo}</h2>
               </div>
             </div>
           </>
