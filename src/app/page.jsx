@@ -72,6 +72,14 @@ export default function Home() {
                   </ul>
                 )}
               </li>
+              <li>
+                <Link
+                  href="/PruebaEstadistica"
+                  className="block py-2 px-1 text-white hover:bg-zinc-700 rounded"
+                >
+                  Pruebas Estadisticas
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

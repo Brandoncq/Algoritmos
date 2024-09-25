@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export default function Home() {
+export default function Multiplicador() {
   const [variables, setVariales] = useState({
     x: "",
     a: "",
